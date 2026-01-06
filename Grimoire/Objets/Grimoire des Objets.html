@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<link rel="stylesheet" href="Style.css">
+<meta charset="UTF-8">
+<title>Recherche JDR</title>
+</head>
+<body>
+
+<h1>Objets de Macro World</h1>
+<input type="text" id="searchBar" placeholder="Tapez le nom de l'objet..." onkeyup="searchItem()">
+
+<div id="results"></div>
+
+<script>
+// Base de données des objets
+const items = [
+  {
+    name: "Chemise de L'académie",
+    stats: { Défense: "+1", Emplacement: "Torse" },
+    link: "Chemise_de_L_académie.html"
+  },
+  {
+    name: "Pantalon de L'académie",
+    stats: { Effet: "Permet de ne pas glisser sur l'écorce du village", Emplacement: "Jambes" },
+    link: "Pantalon_de_L_académie.html"
+  },
+  {
+    name: "Sceptre de L'académie",
+    stats: { Dégats: "1d8", Emplacement: "Main droite", Effet: "Permet de libérer la magie de certains objets" },
+    link: "Sceptre_de_L_académie.html"
+  },
+  {
+    name: "Scaralier",
+    stats: { Effet: "Permet de lancer jusqu'à 2 Sorts vert connus à chaques combats", Emplacement: "Artefacts" },
+    link: "Scaralier.html"
+  }
+];
+
+// Fonction de recherche
+function searchItem() {
+  const input = document.getElementById('searchBar').value.toLowerCase();
+  const resultsDiv = document.getElementById('results');
+  resultsDiv.innerHTML = ''; // Vide les résultats précédents
+
+  if (input === '') return;
+
+  const filtered = items.filter(item => item.name.toLowerCase().includes(input));
+
+  if (filtered.length === 0) {
+    resultsDiv.innerHTML = "<p>Aucun objet trouvé.</p>";
+  } else {
+    filtered.forEach(item => {
+      // Crée un div pour le résultat
+      const resultDiv = document.createElement('div');
+      resultDiv.classList.add('item-card'); // ← applique le style MacroWorld
+      resultDiv.onclick = () => { window.location.href = item.link; };
+
+      // Ajoute le nom
+      const nameEl = document.createElement('strong');
+      nameEl.textContent = item.name;
+      resultDiv.appendChild(nameEl);
+
+      // Ajoute les stats
+      for (const key in item.stats) {
+        const p = document.createElement('p');
+        p.innerHTML = `<strong>${key} :</strong> ${item.stats[key]}`;
+        resultDiv.appendChild(p);
+      }
+
+      resultsDiv.appendChild(resultDiv); // Ajoute le résultat au DOM
+    });
+  }
+}
+
+</script>
+<div class="button-container">
+    <button class="menu-button" onclick="window.location.href='../Grimoire.html'">
+        ← Retour au Grimoire
+    </button>
+</div>
+</body>
+</html>

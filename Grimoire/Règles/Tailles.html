@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<link rel="stylesheet" href="Style.css">
+<meta charset="UTF-8">
+
+<title>Tailles & Avantages</title>
+</head>
+<body>
+
+<div class="container">
+  <div class="stats">
+    <h1>Tailles</h1>
+<p>Chaque niveau de taille correspond à une échelle physique dans le monde de MacroWorld.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Niveau</th>
+      <th>Nom</th>
+      <th>Taille approximative</th>
+      <th>Exemples</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>T-2</td>
+      <td>Minuscule</td>
+      <td>1–2 cm</td>
+      <td>Fourmi, larve</td>
+    </tr>
+    <tr>
+      <td>T-1</td>
+      <td>Petit</td>
+      <td>2–4 cm</td>
+      <td>Scarabée, jeune souris</td>
+    </tr>
+    <tr>
+      <td>T0</td>
+      <td>Standard</td>
+      <td>4–6 cm</td>
+      <td>Macro adulte</td>
+    </tr>
+    <tr>
+      <td>T+1</td>
+      <td>Grand</td>
+      <td>7–15 cm</td>
+      <td>Gros rongeur</td>
+    </tr>
+    <tr>
+      <td>T+2</td>
+      <td>Colossal</td>
+      <td>16–40 cm</td>
+      <td>Chat, petit chien</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1>Avantages</h1>
+<p>Plus une entité est grande que sa cible, plus elle inflige de dégâts, tandis qu’une entité plus petite subit un malus. <strong>si le résultat final est supérieur ou égal à 0,50, il est arrondi au supérieur.
+S’il est inférieur à 0,50, il est arrondi à l’inférieur.</strong></p>
+
+ <table>
+    <thead>
+      <tr>
+        <th>Attaquant \ Défenseur</th>
+        <th>T-2</th>
+        <th>T-1</th>
+        <th>T0</th>
+        <th>T+1</th>
+        <th>T+2</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>T-2</td>
+        <td>0%</td>
+        <td>-15%</td>
+        <td>-30%</td>
+        <td>-45%</td>
+        <td>-60%</td>
+      </tr>
+      <tr>
+        <td>T-1</td>
+        <td>+15%</td>
+        <td>0%</td>
+        <td>-15%</td>
+        <td>-30%</td>
+        <td>-45%</td>
+      </tr>
+      <tr>
+        <td>T0</td>
+        <td>+30%</td>
+        <td>+15%</td>
+        <td>0%</td>
+        <td>-15%</td>
+        <td>-30%</td>
+      </tr>
+      <tr>
+        <td>T+1</td>
+        <td>+45%</td>
+        <td>+30%</td>
+        <td>+15%</td>
+        <td>0%</td>
+        <td>-15%</td>
+      </tr>
+      <tr>
+        <td>T+2</td>
+        <td>+60%</td>
+        <td>+45%</td>
+        <td>+30%</td>
+        <td>+15%</td>
+        <td>0%</td>
+      </tr>
+    </tbody>
+  </table>
+    
+<p><em>
+Exemple : une créature T-2 attaquant une créature T0 subit un malus de -30%.
+Si elle inflige 1 dégât, le résultat devient 0,70 et est arrondi à 1.
+
+En revanche, si une créature T-2 affronte une créature T+2, elle subit un malus de -60%.
+Son attaque passe donc à 0,40, ce qui est arrondi à 0 : l’attaque n’inflige aucun dégât.
+</em></p>
+
+    <button class="menu-button" onclick="window.location.href='../Grimoire.html'">
+        ← Retour au Grimoire
+    </button>
+</div>
+  </div>
+</div>
+
+</body>
+</html>

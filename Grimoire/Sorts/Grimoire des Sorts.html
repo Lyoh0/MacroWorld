@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<link rel="stylesheet" href="Style.css">
+<meta charset="UTF-8">
+<title>Sorts de Macro World</title>
+</head>
+<body>
+
+<h1>Sorts de Macro World</h1>
+<input type="text" id="searchBar" placeholder="Tapez le nom de sort..." onkeyup="searchItem()">
+
+<div id="results"></div>
+
+<script>
+// Base de données des Sorts
+const items = [
+  {
+    name: "Soins Juteux",
+    stats: {Type: "Vert", Effet: "Soigne 1d6 à chaques joueurs autour du lanceur"},
+    link: "Soins_Juteux.html"
+  },
+  
+ {
+    name: "Sphère de Soin",
+    stats: {Type: "Vert", Effet: "Lance un sphère qui rebondit sur 1d4 mur/objets/créatures et soigne 2 Pv par joueurs rencontré."},
+    link: "Sphère_de_Soin.html"
+  },
+  
+  {
+    name: "Bouclier de L'écorce",
+    stats: {Type: "Bleu", Effet: "Donne un bouclier magique supplémentaire de 1d4 jusqu'à destruction"},
+    link: "Bouclier_de_l_écorce.html"
+  },
+  
+ {
+    name: "Force de la Pierre",
+    stats: {Type: "Bleu", Effet: "Augmente les dégats de 1d4 pendant 3 tours"},
+    link: "Force_de_la_Pierre.html"
+  }
+];
+
+// Fonction de recherche
+function searchItem() {
+  const input = document.getElementById('searchBar').value.toLowerCase();
+  const resultsDiv = document.getElementById('results');
+  resultsDiv.innerHTML = ''; // Vide les résultats précédents
+
+  if (input === '') {
+    return;
+  }
+
+  const filtered = items.filter(item => item.name.toLowerCase().includes(input));
+
+  if (filtered.length === 0) {
+    resultsDiv.innerHTML = "<p>Aucun sort trouvé.</p>";
+  } else {
+    filtered.forEach(item => {
+      let statsText = '';
+      for (const key in item.stats) {
+        statsText += `${key} : ${item.stats[key]}<br>`;
+      }
+
+      resultsDiv.innerHTML += `
+        <div onclick="window.location.href='${item.link}'" 
+             style="border:1px solid #ccc; padding:5px; margin-bottom:5px; cursor:pointer;">
+          <strong>${item.name}</strong><br>
+          ${statsText}
+        </div>
+      `;
+    });
+  }
+}
+</script>
+<div class="button-container">
+    <button class="menu-button" onclick="window.location.href='../Grimoire.html'">
+        ← Retour au Grimoire
+    </button>
+</div>
+</body>
+</html>

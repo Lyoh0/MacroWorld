@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<link rel="stylesheet" href="Style.css">
+<meta charset="UTF-8">
+<title>Monstres de Macro World</title>
+</head>
+<body>
+
+<h1>Monstres de Macro World</h1>
+<input type="text" id="searchBar" placeholder="Tapez le nom du monstre..." onkeyup="searchItem()">
+
+<div id="results"></div>
+
+<script>
+// Base de données des monstres
+const items = [
+  {
+    name: "Soldats d'entrainement",
+    stats: { Déplacement: "2", Dégâts: "1d6" },
+    link: "Soldat_d_entrainement.html"
+  }
+];
+
+// Fonction de recherche
+function searchItem() {
+  const input = document.getElementById('searchBar').value.toLowerCase();
+  const resultsDiv = document.getElementById('results');
+  resultsDiv.innerHTML = '';
+
+  if (input === '') return;
+
+  const filtered = items.filter(item => item.name.toLowerCase().includes(input));
+
+  if (filtered.length === 0) {
+    resultsDiv.innerHTML = "<p>Aucun monstre trouvé.</p>";
+  } else {
+    filtered.forEach(item => {
+      let statsText = '';
+      for (const key in item.stats) {
+        statsText += `${key} : ${item.stats[key]}<br>`;
+      }
+
+      resultsDiv.innerHTML += `
+        <div onclick="window.location.href='${item.link}'" 
+             style="border:1px solid #ccc; padding:10px; margin-bottom:10px; cursor:pointer;">
+          <strong>${item.name}</strong><br>
+          ${statsText}
+        </div>
+      `;
+    });
+  }
+}
+</script>
+
+<div class="button-container">
+    <button class="menu-button" onclick="window.location.href='../Grimoire.html'">
+        ← Retour au Grimoire
+    </button>
+</div>
+
+</body>
+</html>
