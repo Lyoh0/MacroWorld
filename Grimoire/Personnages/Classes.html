@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<link rel="stylesheet" href="Style.css">
+<meta charset="UTF-8">
+<title>Classes de MacroWorld</title>
+</head>
+<body>
+
+<h1>Classes de MacroWorld</h1>
+<input type="text" id="searchBar" placeholder="Tapez le nom d'une classe..." onkeyup="searchItem()">
+
+<div id="results"></div>
+
+<script>
+// Base de données des monstres
+const items = [
+  {
+    name: "Sentinelle",
+    stats: "Guerrier discipliné spécialisé dans la défense et la protection de ses alliés. Il encaisse les coups et contrôle le champ de bataille.",
+    link: "Sentinelle.html"
+  },
+
+  {
+    name: "Arcaniste",
+    stats: "Mage érudit maîtrisant la magie brute à travers des sorts complexes. Puissant mais fragile, il domine à distance.",
+    link: "Arcaniste.html"
+  },
+
+  {
+    name: "Traqueur",
+    stats: "Combattant agile préférant la discrétion et la mobilité. Il frappe vite, se déplace sans être vu et exploite les faiblesses ennemies.",
+    link: "Traqueur.html"
+  },
+
+  {
+    name: "Alchimiste",
+    stats: "Créateur ingénieux capable de fabriquer potions, pièges, bombes et outils divers. Il prépare le terrain et s’adapte à toutes les situations.",
+    link: "Alchimiste.html"
+  },
+
+  {
+    name: "Enchanteur",
+    stats: "Soutien mystique capable d’améliorer équipements et alliés grâce à la magie. Essentiel pour renforcer un groupe sur la durée.",
+    link: "Enchanteur.html"
+  }
+];
+
+// Fonction de recherche
+function searchItem() {
+  const input = document.getElementById('searchBar').value.toLowerCase();
+  const resultsDiv = document.getElementById('results');
+  resultsDiv.innerHTML = ''; // Vide les résultats précédents
+
+  if (input === '') return;
+
+  const filtered = items.filter(item => item.name.toLowerCase().includes(input));
+
+  if (filtered.length === 0) {
+    resultsDiv.innerHTML = "<p>Aucun objet trouvé.</p>";
+  } else {
+    filtered.forEach(item => {
+      resultsDiv.innerHTML += `
+        <div class="item-card" onclick="window.location.href='${item.link}'">
+          <strong>${item.name}</strong>
+          <p>${item.stats}</p>
+        </div>
+      `;
+    });
+  }
+}
+
+
+</script>
+
+<a href="Personnages.html" class="back-link">← Retour à la liste des Caractéristiques des Macros</a>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<link rel="stylesheet" href="Style.css">
+<meta charset="UTF-8">
+<title>Races de MacroWorld</title>
+</head>
+<body>
+
+<h1>Races de MacroWorld</h1>
+<input type="text" id="searchBar" placeholder="Tapez le nom d'une race..." onkeyup="searchItem()">
+
+<div id="results"></div>
+
+<script>
+// Base de données des monstres
+const items = [
+  {
+    name: "Arachéïde",
+    stats: "Les Arachnéïdes sont des Macros agiles et rusés, avec un corps fin et des pattes multiples. Leur petite taille leur permet de se faufiler partout et de tendre des pièges ingénieux",
+    link: "Arachéïde.html"
+  },
+
+  {
+    name: "Sylvain",
+    stats: "Être lié à la nature, agile et discret. Les Sylvains se déplacent facilement dans les environnements naturels",
+    link: "Sylvain.html"
+  },
+
+  {
+    name: "Humain",
+    stats: "Race polyvalente et adaptable, capable d’exceller dans presque tous les domaines grâce à sa détermination",
+    link: "Humain.html"
+  },
+
+  {
+    name: "Mycomorphe",
+    stats: "Créature fongique intelligente, résistante et étrange. Elle tire sa force des spores et de la régénération",
+    link: "Mycomorphe.html"
+  },
+
+  {
+    name: "Insectoïde",
+    stats: "Race carapacée issue du MacroWorld. Rapide, résistante et dotée de capacités naturelles uniques",
+    link: "Insectoïde.html"
+  }
+];
+
+// Fonction de recherche
+function searchItem() {
+  const input = document.getElementById('searchBar').value.toLowerCase();
+  const resultsDiv = document.getElementById('results');
+  resultsDiv.innerHTML = ''; // Vide les résultats précédents
+
+  if (input === '') return;
+
+  const filtered = items.filter(item => item.name.toLowerCase().includes(input));
+
+  if (filtered.length === 0) {
+    resultsDiv.innerHTML = "<p>Aucun objet trouvé.</p>";
+  } else {
+    filtered.forEach(item => {
+      resultsDiv.innerHTML += `
+        <div class="item-card" onclick="window.location.href='${item.link}'">
+          <strong>${item.name}</strong>
+          <p>${item.stats}</p>
+        </div>
+      `;
+    });
+  }
+}
+
+
+</script>
+
+<a href="Personnages.html" class="back-link">← Retour à la liste des Caractéristiques des Macros</a>
+
+</body>
+</html>
