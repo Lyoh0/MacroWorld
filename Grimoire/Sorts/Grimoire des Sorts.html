@@ -46,28 +46,32 @@ function searchItem() {
   const resultsDiv = document.getElementById('results');
   resultsDiv.innerHTML = ''; // Vide les résultats précédents
 
-  if (input === '') {
-    return;
-  }
+  if (input === '') return;
 
   const filtered = items.filter(item => item.name.toLowerCase().includes(input));
 
   if (filtered.length === 0) {
-    resultsDiv.innerHTML = "<p>Aucun sort trouvé.</p>";
+    resultsDiv.innerHTML = "<p>Aucun objet trouvé.</p>";
   } else {
     filtered.forEach(item => {
-      let statsText = '';
+      // Crée un div pour le résultat
+      const resultDiv = document.createElement('div');
+      resultDiv.classList.add('item-card'); // ← applique le style MacroWorld
+      resultDiv.onclick = () => { window.location.href = item.link; };
+
+      // Ajoute le nom
+      const nameEl = document.createElement('strong');
+      nameEl.textContent = item.name;
+      resultDiv.appendChild(nameEl);
+
+      // Ajoute les stats
       for (const key in item.stats) {
-        statsText += `${key} : ${item.stats[key]}<br>`;
+        const p = document.createElement('p');
+        p.innerHTML = `<strong>${key} :</strong> ${item.stats[key]}`;
+        resultDiv.appendChild(p);
       }
 
-      resultsDiv.innerHTML += `
-        <div onclick="window.location.href='${item.link}'" 
-             style="border:1px solid #ccc; padding:5px; margin-bottom:5px; cursor:pointer;">
-          <strong>${item.name}</strong><br>
-          ${statsText}
-        </div>
-      `;
+      resultsDiv.appendChild(resultDiv); // Ajoute le résultat au DOM
     });
   }
 }
