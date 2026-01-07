@@ -5,7 +5,9 @@
     <meta http-equiv="refresh" content="2; url=Grimoire/Grimoire.html">
     <title>Redirection vers le Grimoire</title>
     <style>
-        /* --- Fond et texte --- */
+        /* ============================= */
+        /*        MACROWORLD CSS         */
+        /* ============================= */
         body {
             margin: 0;
             padding: 0;
@@ -13,36 +15,48 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #2e4d2e; /* vert sombre pour style MacroWorld */
-            color: #f5f0c5;
+            background-color: #7ba76c; /* vert dense MacroWorld */
             font-family: "Cinzel", "Georgia", serif;
+            color: #2b1d0e;
             text-align: center;
         }
 
-        /* --- Encadré de message --- */
         .redirect-box {
-            background-color: #4b6b4b;
-            padding: 40px 60px;
-            border-radius: 12px;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-            border: 2px solid #8b6b3e;
-            animation: pulse 1.5s infinite;
+            background-color: #d9f0c5; /* vert clair MacroWorld */
+            padding: 50px 70px;
+            border-radius: 16px;
+            border: 2px solid #5d7035;
+            box-shadow:
+                inset 0 0 8px rgba(255,255,255,0.6),
+                0 6px 18px rgba(30,50,20,0.45);
+            animation: pulse 1.8s infinite;
         }
 
         h1 {
-            margin: 0 0 20px 0;
-            font-size: 2em;
-            text-shadow: 1px 1px 2px #000;
+            font-size: 2.5em;
+            color: #26491b;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-shadow:
+                1px 1px 0 #d9f0c5,
+                0 0 8px rgba(30, 60, 20, 0.4);
         }
 
         p {
             font-size: 1.2em;
+            margin: 10px 0;
         }
 
-        /* --- Animation douce --- */
+        a {
+            color: #26491b;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        /* --- Animation pulsante --- */
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.03); }
+            50% { transform: scale(1.04); }
             100% { transform: scale(1); }
         }
     </style>
@@ -50,8 +64,9 @@
 <body>
     <div class="redirect-box">
         <h1>Bienvenue dans MacroWorld !</h1>
-        <p>Redirection vers le Grimoire…</p>
-        <p><em>Si rien ne se passe, <a href="Grimoire/Grimoire.html" style="color:#f5f0c5; text-decoration:underline;">cliquez ici</a>.</em></p>
+        <p>Préparez-vous à explorer le Grimoire…</p>
+        <p><em>Redirection automatique dans 2 secondes.</em></p>
+        <p><em>Si rien ne se passe, <a href="Grimoire/Grimoire.html">cliquez ici</a>.</em></p>
     </div>
 </body>
 </html>
