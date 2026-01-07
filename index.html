@@ -15,7 +15,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #7ba76c; /* vert dense MacroWorld */
+            background-color: #7ba76c; /* vert lumineux MacroWorld */
             font-family: "Cinzel", "Georgia", serif;
             color: #2b1d0e;
             text-align: center;
@@ -25,21 +25,21 @@
             background-color: #d9f0c5; /* vert clair MacroWorld */
             padding: 50px 70px;
             border-radius: 16px;
-            border: 2px solid #5d7035;
+            border: 2px solid #a7c97e; /* vert un peu plus foncé pour le contour */
             box-shadow:
                 inset 0 0 8px rgba(255,255,255,0.6),
-                0 6px 18px rgba(30,50,20,0.45);
+                0 6px 18px rgba(90,120,60,0.35);
             animation: pulse 1.8s infinite;
         }
 
         h1 {
             font-size: 2.5em;
-            color: #26491b;
+            color: #3a5d2f; /* vert moyen plus chaud pour le texte */
             margin-bottom: 20px;
             letter-spacing: 1px;
             text-shadow:
-                1px 1px 0 #d9f0c5,
-                0 0 8px rgba(30, 60, 20, 0.4);
+                1px 1px 0 #e6f5d8,
+                0 0 8px rgba(120,160,60,0.4);
         }
 
         p {
@@ -48,15 +48,14 @@
         }
 
         a {
-            color: #26491b;
+            color: #3a5d2f;
             text-decoration: underline;
             font-weight: bold;
         }
 
-        /* --- Animation pulsante --- */
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.04); }
+            50% { transform: scale(1.03); }
             100% { transform: scale(1); }
         }
     </style>
