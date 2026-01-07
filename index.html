@@ -2,10 +2,56 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=Grimoire/Grimoire.html">
-    <title>Redirection...</title>
+    <meta http-equiv="refresh" content="2; url=Grimoire/Grimoire.html">
+    <title>Redirection vers le Grimoire</title>
+    <style>
+        /* --- Fond et texte --- */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #2e4d2e; /* vert sombre pour style MacroWorld */
+            color: #f5f0c5;
+            font-family: "Cinzel", "Georgia", serif;
+            text-align: center;
+        }
+
+        /* --- Encadré de message --- */
+        .redirect-box {
+            background-color: #4b6b4b;
+            padding: 40px 60px;
+            border-radius: 12px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            border: 2px solid #8b6b3e;
+            animation: pulse 1.5s infinite;
+        }
+
+        h1 {
+            margin: 0 0 20px 0;
+            font-size: 2em;
+            text-shadow: 1px 1px 2px #000;
+        }
+
+        p {
+            font-size: 1.2em;
+        }
+
+        /* --- Animation douce --- */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+    </style>
 </head>
 <body>
-    <p>Redirection vers le grimoire…</p>
+    <div class="redirect-box">
+        <h1>Bienvenue dans MacroWorld !</h1>
+        <p>Redirection vers le Grimoire…</p>
+        <p><em>Si rien ne se passe, <a href="Grimoire/Grimoire.html" style="color:#f5f0c5; text-decoration:underline;">cliquez ici</a>.</em></p>
+    </div>
 </body>
 </html>
