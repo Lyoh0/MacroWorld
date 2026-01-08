@@ -4,107 +4,104 @@
     <meta charset="UTF-8">
     <title>Les Sylvains</title>
     <link rel="stylesheet" href="Style.css">
+    <style>
+        /* Conteneur principal */
+        .welcome-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        /* Cadres */
+        .card {
+            border: 2px solid #5d7035;
+            border-radius: 12px;
+            background-color: #d9f0c5;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow:
+                inset 0 0 6px rgba(255,255,255,0.5),
+                0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Titres et textes */
+        .card h2, .card h3, .card h4 {
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+        .card p, .card ul {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+
+        /* Lien retour */
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #2c3e23;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
 
-<div class="stats">
+<div class="welcome-container">
 
     <h1>Les Sylvains</h1>
 
-    <div class="item-card">
+    <div class="card">
         <h2>Extrait</h2>
-
-        <p><em>
-            — « Tout pousse ici… même les peuples. »
-        </em></p>
-
-        <p>
-            Le vieil éclaireur posa sa main contre l’écorce tiède de l’arbre.
-        </p>
-
-        <p><em>
-            — « Les Sylvains n’ont ni carapace, ni crocs, ni soie.
-            Mais ils ont appris à vivre avec la forêt, pas contre elle. »
-        </em></p>
-
-        <p>
-            Un rire léger s’éleva derrière lui.
-        </p>
-
-        <p><em>
-            — « Et surtout… on apprend vite. »
-        </em></p>
+        <p><em>— « Tout pousse ici… même les peuples. »</em></p>
+        <p>Le vieil éclaireur posa sa main contre l’écorce tiède de l’arbre.</p>
+        <p><em>— « Les Sylvains n’ont ni carapace, ni crocs, ni soie. Mais ils ont appris à vivre avec la forêt, pas contre elle. »</em></p>
+        <p>Un rire léger s’éleva derrière lui.</p>
+        <p><em>— « Et surtout… on apprend vite. »</em></p>
     </div>
 
-    <div class="item-card">
+    <div class="card">
         <h2>Présentation</h2>
-
-        <p>
-            Les Sylvains sont le peuple le plus répandu de MacroWorld.
-            Ni les plus forts, ni les plus rapides, ni les plus mystiques,
-            ils se distinguent par leur adaptabilité
-        </p>
-
-        <p>
-            Ils vivent au sol, dans les troncs creux, sous les racines
-            ou dans des structures légères faites de bois et de feuilles.
-        </p>
+        <p>Les Sylvains sont le peuple le plus répandu de MacroWorld. Ni les plus forts, ni les plus rapides, ni les plus mystiques, ils se distinguent par leur adaptabilité.</p>
+        <p>Ils vivent au sol, dans les troncs creux, sous les racines ou dans des structures légères faites de bois et de feuilles.</p>
     </div>
 
-    <div class="item-card">
+    <div class="card">
         <h2>Caractéristiques raciales</h2>
-
         <p><strong>PV :</strong> 10 + modificateur de Constitution</p>
         <p><strong>Déplacement :</strong> 3 cases</p>
         <p><strong>Taille :</strong> 5-6cm (T0)</p>
     </div>
 
-    <div class="item-card">
-        <h2>Capacité raciale</h2>
-
+    <div class="card">
+        <h2>Capacité raciale</h2><br>
         <strong>Adaptation sylvaine</strong>
-        <p>
-            Une fois par combat ou scène d’exploration,
-            le Sylvain peut relancer un jet raté
-            <em>ou</em> obtenir un +1 temporaire
-            à une caractéristique jusqu’à la fin du tour.
-        </p>
+        <p>Une fois par combat ou scène d’exploration, le Sylvain peut relancer un jet raté ou obtenir un +1 temporaire à une caractéristique jusqu’à la fin du tour.</p>
     </div>
 
-    <div class="item-card">
+    <div class="card">
         <h2>Bonus raciaux</h2>
-
         <p>Choisissez un bonus à la création :</p>
-
-           <br> +1 Force
-            <br>+1 Dextérité
-           <br> +1 Intelligence
-            <br>+1 Sagesse
-           <br> +1 Charisme
-
-        <p>
-            Les Sylvains sont la seule race à pouvoir choisir librement
-            leur bonus principal.
-        </p>
+        <ul>
+            <li>+1 Force</li>
+            <li>+1 Dextérité</li>
+            <li>+1 Intelligence</li>
+            <li>+1 Sagesse</li>
+            <li>+1 Charisme</li>
+        </ul>
+        <p>Les Sylvains sont la seule race à pouvoir choisir librement leur bonus principal.</p>
     </div>
 
-    <div class="item-card">
+    <div class="card">
         <h2>Culture sylvaine</h2>
-
-        <p>
-            Les Sylvains vivent en communautés variées :
-            villages racinaires, campements nomades,
-            avant-postes marchands.
-        </p>
-
-        <p>
-            Ils servent souvent de lien entre les peuples de MacroWorld.
-        </p>
+        <p>Les Sylvains vivent en communautés variées : villages racinaires, campements nomades, avant-postes marchands.</p>
+        <p>Ils servent souvent de lien entre les peuples de MacroWorld.</p>
     </div>
 
-    <div class="item-card">
+    <div class="card">
         <h2>Noms sylvains</h2>
-
         <p><strong>Masculins :</strong> Alren, Tovan, Elyr, Bran, Kael, Silmo</p>
         <p><strong>Féminins :</strong> Lysa, Aria, Neris, Feya, Elwen, Mira</p>
         <p><strong>Neutres :</strong> Ash, Lior, Nae, Ryn, Sol</p>
