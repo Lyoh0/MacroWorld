@@ -8,59 +8,74 @@
 <body>
 
 <h1>Règles de Macroworld</h1>
-<input type="text" id="searchBar" placeholder="Tapez la Règle que vous Cherchez..." onkeyup="searchItem()">
+<input type="text" id="searchBar" placeholder="Tapez la règle que vous cherchez..." onkeyup="searchItem()">
 
 <div id="results"></div>
 
 <script>
-// Base de données des monstres
 const items = [
   {
-    name: "Les Tailles & Avantages",
+    name: "Bienvenue dans MacroWorld",
+    link: "Bienvenue.html"
+  },
+  {
+    name: "Tailles & Avantages",
     link: "Tailles.html"
   },
   {
-    name: "Bienvenue",
-    link: "Bienvenue.html"
+    name: "Races",
+    link: "Races.html"
+  },
+  {
+    name: "Classes",
+    link: "Classes.html"
+  },
+  {
+    name: "Combat",
+    link: "Combat.html"
   }
 ];
 
-// Fonction de recherche
+// Fonction d’affichage (utilisée au chargement ET à la recherche)
+function displayItems(list) {
+  const resultsDiv = document.getElementById('results');
+  resultsDiv.innerHTML = '';
+
+  if (list.length === 0) {
+    resultsDiv.innerHTML = "<p>Aucune règle trouvée.</p>";
+    return;
+  }
+
+  list.forEach(item => {
+    const card = document.createElement('div');
+    card.classList.add('item-card');
+    card.onclick = () => window.location.href = item.link;
+
+    const title = document.createElement('strong');
+    title.textContent = item.name;
+
+    card.appendChild(title);
+    resultsDiv.appendChild(card);
+  });
+}
+
+// Recherche
 function searchItem() {
   const input = document.getElementById('searchBar').value.toLowerCase();
-  const resultsDiv = document.getElementById('results');
-  resultsDiv.innerHTML = ''; // Vide les résultats précédents
 
-  if (input === '') return;
+  const filtered = items.filter(item =>
+    item.name.toLowerCase().includes(input)
+  );
 
-  const filtered = items.filter(item => item.name.toLowerCase().includes(input));
-
-  if (filtered.length === 0) {
-    resultsDiv.innerHTML = "<p>Aucun objet trouvé.</p>";
-  } else {
-    filtered.forEach(item => {
-      // Crée un div pour le résultat
-      const resultDiv = document.createElement('div');
-      resultDiv.classList.add('item-card'); // ← applique le style MacroWorld
-      resultDiv.onclick = () => { window.location.href = item.link; };
-
-      // Ajoute le nom
-      const nameEl = document.createElement('strong');
-      nameEl.textContent = item.name;
-      resultDiv.appendChild(nameEl);
-
-      // Ajoute les stats
-      for (const key in item.stats) {
-        const p = document.createElement('p');
-        p.innerHTML = `<strong>${key} :</strong> ${item.stats[key]}`;
-        resultDiv.appendChild(p);
-      }
-
-      resultsDiv.appendChild(resultDiv); // Ajoute le résultat au DOM
-    });
-  }
+  displayItems(filtered);
 }
+
+// AFFICHAGE INITIAL
+window.onload = () => {
+  displayItems(items);
+};
 </script>
+
 
 <div class="button-container">
     <button class="menu-button" onclick="window.location.href='../Grimoire.html'">
@@ -70,4 +85,3 @@ function searchItem() {
 
 </body>
 </html>
-
