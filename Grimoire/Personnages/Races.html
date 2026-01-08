@@ -13,65 +13,74 @@
 <div id="results"></div>
 
 <script>
-// Base de données des monstres
+// Base de données des races
 const items = [
   {
     name: "Arachéïde",
-    stats: "Les Arachnéïdes sont des Macros agiles et rusés, avec un corps fin et des pattes multiples. Leur petite taille leur permet de se faufiler partout et de tendre des pièges ingénieux",
+    stats: "Macros arachnéens agiles et rusés, capables de se déplacer sur presque toutes les surfaces et d’utiliser la soie.",
     link: "Arachéïde.html"
   },
-
   {
     name: "Sylvain",
-    stats: "Être lié à la nature, agile et discret. Les Sylvains se déplacent facilement dans les environnements naturels",
+    stats: "Peuple lié à la nature, équilibré et adaptable, considéré comme la race de base du MacroWorld.",
     link: "Sylvain.html"
   },
-
-  {
-    name: "Humain",
-    stats: "Race polyvalente et adaptable, capable d’exceller dans presque tous les domaines grâce à sa détermination",
-    link: "Humain.html"
-  },
-
   {
     name: "Mycomorphe",
-    stats: "Créature fongique intelligente, résistante et étrange. Elle tire sa force des spores et de la régénération",
+    stats: "Créatures fongiques intelligentes, résistantes et étranges, liées aux spores et à la régénération.",
     link: "Mycomorphe.html"
   },
-
   {
     name: "Insectoïde",
-    stats: "Race carapacée issue du MacroWorld. Rapide, résistante et dotée de capacités naturelles uniques",
+    stats: "Race carapacée issue du MacroWorld, rapide et robuste, dotée de capacités naturelles uniques.",
     link: "Insectoïde.html"
   }
 ];
 
-// Fonction de recherche
-function searchItem() {
-  const input = document.getElementById('searchBar').value.toLowerCase();
+// Fonction d’affichage
+function displayItems(list) {
   const resultsDiv = document.getElementById('results');
-  resultsDiv.innerHTML = ''; // Vide les résultats précédents
+  resultsDiv.innerHTML = '';
 
-  if (input === '') return;
-
-  const filtered = items.filter(item => item.name.toLowerCase().includes(input));
-
-  if (filtered.length === 0) {
-    resultsDiv.innerHTML = "<p>Aucun objet trouvé.</p>";
-  } else {
-    filtered.forEach(item => {
-      resultsDiv.innerHTML += `
-        <div class="item-card" onclick="window.location.href='${item.link}'">
-          <strong>${item.name}</strong>
-          <p>${item.stats}</p>
-        </div>
-      `;
-    });
+  if (list.length === 0) {
+    resultsDiv.innerHTML = "<p>Aucune race trouvée.</p>";
+    return;
   }
+
+  list.forEach(item => {
+    const card = document.createElement('div');
+    card.classList.add('item-card');
+    card.onclick = () => window.location.href = item.link;
+
+    const title = document.createElement('strong');
+    title.textContent = item.name;
+
+    const desc = document.createElement('p');
+    desc.textContent = item.stats;
+
+    card.appendChild(title);
+    card.appendChild(desc);
+    resultsDiv.appendChild(card);
+  });
 }
 
+// Recherche
+function searchItem() {
+  const input = document.getElementById('searchBar').value.toLowerCase();
 
+  const filtered = items.filter(item =>
+    item.name.toLowerCase().includes(input)
+  );
+
+  displayItems(filtered);
+}
+
+// 👉 Affichage par défaut
+window.onload = () => {
+  displayItems(items);
+};
 </script>
+
 
 <a href="Personnages.html" class="back-link">← Retour à la liste des Caractéristiques des Macros</a>
 
